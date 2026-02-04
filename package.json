@@ -1,0 +1,15 @@
+{
+  "name": "tt-shoppe-scrap",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "patchright": "^1.57.0"
+  }
+}
