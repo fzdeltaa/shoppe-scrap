@@ -6,6 +6,11 @@ To install dependencies:
 bun install
 ```
 
+install chromedriver
+```bash
+bunx patchright install chrome
+```
+
 To run:
 
 ```bash
@@ -18,9 +23,4 @@ This project was created using `bun init` in bun v1.3.5. [Bun](https://bun.com) 
 install patchright
 ```bash
 bun install patchright
-```
-
-install chromedriver
-```bash
-bunx patchright install chrome
 ```
