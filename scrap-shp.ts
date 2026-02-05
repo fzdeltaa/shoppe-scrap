@@ -3,6 +3,13 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 
+const firstName = process.argv[2];
+
+if (!firstName) {
+  console.error("Usage: bun run parse.ts name");
+  process.exit(1);
+}
+
 const csvFile = `shp-result_${Date.now()}.csv`;
 fs.writeFileSync(
   csvFile,
@@ -13,7 +20,7 @@ const scrapeDate = new Date().toISOString();
 let nomore = false;
 
 (async () => {
-  const browser = await chromium.launchPersistentContext(path.join(os.tmpdir(),'patchright_profile'), {
+  const browser = await chromium.launchPersistentContext(path.join(os.tmpdir(), 'patchright_profile'), {
     channel: 'chrome',
     headless: false,
     viewport: null,
@@ -26,8 +33,8 @@ let nomore = false;
   console.log("Silakan login dulu...");
   await page.waitForSelector('.navbar__username', { timeout: 0 });
 
-  const firstName = prompt('Search apa?');
-  console.log('Hello,', firstName);
+  // const firstName = prompt('Search apa?');
+  // console.log('Hello,', firstName);
 
   let lastHit = Date.now();
   page.on('response', async res => {
@@ -48,11 +55,13 @@ let nomore = false;
 
           item_data.item_rating?.rating_star ?? '',
           item_data.shop_name ?? '',
+          item_data.itemid ?? '',
+          item_data.shopid ?? '',
           scrapeDate,
         ]
           .map(v => `"${String(v).replace(/"/g, '""')}"`)
           .join(',');
-        console.log(row);
+        // console.log(row);
 
         fs.appendFileSync(csvFile, row + '\n');
       }
@@ -104,7 +113,7 @@ let nomore = false;
           ]
             .map(v => `"${String(v).replace(/"/g, '""')}"`)
             .join(',');
-          console.log(row);
+          // console.log(row);
 
           fs.appendFileSync(csvFile, row + '\n');
         }
