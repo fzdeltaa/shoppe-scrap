@@ -14,12 +14,6 @@ bun install
 bunx patchright install chrome
 ```
 
-### Install Patchright
-
-```bash
-bun install patchright
-```
-
 ## Usage
 
 ### Run Shoppe Extract
@@ -85,3 +79,9 @@ const browser = await chromium.launchPersistentContext(path.join(os.tmpdir(), 'p
 ## About
 
 This project was created using `bun init` in bun v1.3.5. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+
+### Install Patchright
+
+```bash
+bun install patchright
+```
