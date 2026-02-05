@@ -56,8 +56,8 @@ You need the CSV with the same format generated from `scrap-shp`.
 **Example:**
 
 ```bash
-bun run scrap-shp-product-details.ts csv shp-result_1770260359611.csv
-bun run scrap-shp-product-details.ts csv 'shp-result_1770260359611 copy.csv'
+bun run scrap-shp-product-details.ts shp-result_1770260359611.csv
+bun run scrap-shp-product-details.ts 'shp-result_1770260359611 copy.csv'
 ```
 
 ## Configuration
