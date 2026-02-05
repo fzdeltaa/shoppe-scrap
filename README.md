@@ -54,6 +54,12 @@ bun run scrap-shp-product-details.ts shp-result_1770260359611.csv
 bun run scrap-shp-product-details.ts 'shp-result_1770260359611 copy.csv'
 ```
 
+**What will you get:**
+Something like this on the end row:
+```csv
+"{""Formula Konsumsi"":""Kapsul"",""Berat Produk"":""50g"",""Tipe Paket"":""Paket Hemat"",""Fungsi Medis"":""Mata, Hidung, & Tenggorokan, Lainnya"",""Negara Asal"":""Indonesia"",""Golongan Obat"":""Herbal Terstandar"",""Masa Penyimpanan"":""48 Bulan"",""Kontraindikasi"":""Todak ada"",""Aturan Pakai"":""2 Kapsul5"",""Tanggal Kedaluwarsa"":""29-06-2029"",""No. Izin Edar (BPOM, PIRT)"":""699999"",""Jumlah Produk Dalam Kemasan"":""10 Bungkus"",""Efek Samping"":""Tidak ada""}"
+```
+
 ## Configuration
 
 If you're uncomfortable with Chrome running on your screen, just change `headless: true` to `headless: false` (can't guarantee what happens).

@@ -60,14 +60,16 @@ function waitForItemDetails(page: any) {
     const onResponse = async (res: any) => {
       try {
         if (!res.url().includes("/get_pc")) return;
-        const data = await res.json();
+        if (!res.ok()) return;
+        let data;
+        try {
+          data = await res.json();
+        } catch {
+          return; // silently ignore invalid / missing body
+        }
         const item = await data?.data?.item;
         const attrs = await item?.attributes ?? [];
         
-        attrs.forEach((attr: { name: any; value: any; }) => {
-          console.log(attr.name + ": " + attr.value);
-        });
-
         const attributes = JSON.stringify(
           Object.fromEntries(
             attrs.map((a: { name: string; value: string }) => [a.name, a.value])
